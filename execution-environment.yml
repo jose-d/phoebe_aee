@@ -41,4 +41,6 @@ dependencies:
 
 additional_build_steps:
   append_base:
+    # we need this git in advance because galaxy needs that in early phase, 
+    # actually before system requirements are processed.
     - RUN dnf -y install git
