@@ -22,12 +22,6 @@ ansible-builder build --verbosity 3 --tag phoebe_aee
 ```
 to see generated images.. `podman images`
 
-..and save the image:
-
-```
-podman save --quiet -o phoebe_aee-1.0.tar localhost/phoebe_aee
-```
-
 ..login to ghcr with github userame and personal access token:
 
 ```
@@ -38,4 +32,12 @@ podman login ghcr.io
 
 ```
 podman push localhost/phoebe_aee ghcr.io/jose-d/phoebe_aee:latest
+```
+
+## Other
+
+Save the image into tarball:
+
+```
+podman save --quiet -o phoebe_aee-1.0.tar localhost/phoebe_aee
 ```
