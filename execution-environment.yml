@@ -15,6 +15,7 @@ dependencies:
 
   system:
     - git [platform:rpm]
+    - ipmitool [platform:rpm]
 
   python:
     - dnspython
@@ -29,6 +30,7 @@ dependencies:
       - name: community.general
       - name: netbox.netbox
       - name: community.hashi_vault
+      - name: freeipa.ansible_freeipa
 
   python_interpreter:
     package_system: "python39"
