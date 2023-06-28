@@ -21,6 +21,7 @@ dependencies:
     - dnspython
     - pytz
     - ansible-lint
+    - proxmoxer
 
   galaxy:
     collections:
@@ -31,6 +32,7 @@ dependencies:
       - name: netbox.netbox
       - name: community.hashi_vault
       - name: freeipa.ansible_freeipa
+      - name: ansible.utils
 
   python_interpreter:
     package_system: "python39"
