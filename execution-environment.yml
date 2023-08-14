@@ -33,6 +33,7 @@ dependencies:
       - name: community.hashi_vault
       - name: freeipa.ansible_freeipa
       - name: ansible.utils
+      - name: fedora.linux_system_roles
 
   python_interpreter:
     package_system: "python39"
