@@ -29,6 +29,7 @@ dependencies:
     - dnspython
     - pytz
     - proxmoxer
+    - ansible-lint # we need this for having ansible lint working in our vscode :)
 
   python_interpreter:
     package_system: python3.11
@@ -36,6 +37,7 @@ dependencies:
   system:
     - git [platform:rpm]
     - ipmitool [platform:rpm]
+    - which [platform:rpm]
   exclude:
     python:
       - docker
