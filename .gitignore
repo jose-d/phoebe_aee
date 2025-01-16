@@ -2,3 +2,4 @@ python-venv/*
 token
 context
 uv.lock
+*.log
