@@ -1,32 +1,39 @@
 # phoebe_aee
-Ansible execution environment for Phoebe HPC system
 
-## Install
+Ansible execution environment for Phoebe HPC system.
+For python environment `uv` tool is used.
 
-Install ansible-builder into python venv:
+## Dependencies
 
-```
-sudo apt install podman
-cd python-venv/
-python3 -m venv ansible
-source ansible/bin/activate
-python3 -m pip install --upgrade pip
-python3 -m pip install ansible-builder
-```
+### System
+
+- `podman` ( `sudo apt install podman`)
+- `uv` (`curl -LsSf https://astral.sh/uv/install.sh | sh`)
+
+### Procedural
+
+- make sure you have github access token with write access to your package registry
 
 ## Use
 
-build:
+### Build the ansible environment
+
 ```
-ansible-builder build --verbosity 3 --tag phoebe_aee
-```
-or with image prune:
-```
-ansible-builder build --verbosity 2 --prune-images --tag phoebe_aee
+uv run ansible-builder build --verbosity 2 --tag phoebe_aee
 ```
 
+(possibly with prune-images):
 
-to see generated images.. `podman images`
+```
+uv run ansible-builder build --no-cache --prune-images -v 3 --tag phoebe_aee
+```
+### See podman images at current system:
+
+```
+podman images
+```
+
+### Upload your package to github package registry
 
 ..login to ghcr with github userame and personal access token:
 
