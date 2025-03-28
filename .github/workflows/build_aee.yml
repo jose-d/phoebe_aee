@@ -9,7 +9,7 @@ jobs:
     name: Generate release tag from current datestring
     runs-on: ubuntu-latest
     steps:
-      - name: Checkou
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           sparse-checkout: .
@@ -19,4 +19,9 @@ jobs:
         run: |
           sudo apt install podman
           curl -LsSf https://astral.sh/uv/install.sh | sh
+
+      - name: Build image
+        id: build_image
+        run: |
+          uv run ansible-builder build --verbosity 2 --tag phoebe_aee
           
