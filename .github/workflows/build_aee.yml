@@ -13,14 +13,22 @@ jobs:
         uses: actions/checkout@v4
         with:
           sparse-checkout: .
+
+      - name: Cache Podman
+        uses: actions/cache@v3
+        with:
+          path: /home/runner/.cache/podman
+          key: ${{ runner.os }}-podman-${{ hashFiles('**/Podmanfile') }}
+          restore-keys: |
+            ${{ runner.os }}-podman-
   
-      - name: Run some command
+      - name: Ensure podman and uv is installed
         id: run_some_command
         run: |
           sudo apt install podman
           curl -LsSf https://astral.sh/uv/install.sh | sh
 
-      - name: Build image
+      - name: Build AEE image using ansible-builder
         id: build_image
         run: |
           uv run ansible-builder build --verbosity 2 --tag phoebe_aee
