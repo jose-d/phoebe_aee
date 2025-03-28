@@ -24,4 +24,17 @@ jobs:
         id: build_image
         run: |
           uv run ansible-builder build --verbosity 2 --tag phoebe_aee
+
+      - name: Push To ghcr
+        id: push-to-quay
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          image: phoebe_aee
+          tags: latest
+          registry: ghcr.io/${{ github.repository }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Print image url
+        run: echo "Image pushed to ${{ steps.push-to-quay.outputs.registry-paths }}"
           
