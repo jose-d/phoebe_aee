@@ -31,7 +31,7 @@ jobs:
         with:
           image: phoebe_aee
           tags: latest
-          registry: ghcr.io
+          registry: ghcr.io/jose-d
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
