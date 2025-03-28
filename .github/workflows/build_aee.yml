@@ -1,0 +1,15 @@
+name: Build AEE
+run-name: ${{ github.actor }} is attempting to buid ansible execution environment docker image
+on: workflow_dispatch
+permissions: write-all
+env:
+  SOMEVAR: something
+jobs:
+  prolog:
+    name: Generate release tag from current datestring
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run some command
+        id: run_some_command
+        run: |
+          apt install podman
