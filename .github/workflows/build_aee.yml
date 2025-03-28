@@ -9,7 +9,14 @@ jobs:
     name: Generate release tag from current datestring
     runs-on: ubuntu-latest
     steps:
+      - name: Checkou
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: .
+  
       - name: Run some command
         id: run_some_command
         run: |
           sudo apt install podman
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          
