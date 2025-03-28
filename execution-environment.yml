@@ -23,6 +23,7 @@ dependencies:
       - name: freeipa.ansible_freeipa
       - name: ansible.utils
       - name: fedora.linux_system_roles
+      - name: community.crypto
   python:
     - six
     - psutil
