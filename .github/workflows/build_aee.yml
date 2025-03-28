@@ -12,4 +12,4 @@ jobs:
       - name: Run some command
         id: run_some_command
         run: |
-          apt install podman
+          sudo apt install podman
