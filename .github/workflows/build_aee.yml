@@ -1,7 +1,9 @@
 name: Build AEE
-run-name: ${{ github.actor }} is attempting to buid ansible execution environment docker image
+run-name: ${{ github.actor }} is attempting to build ansible execution environment docker image
 on: workflow_dispatch
-permissions: write-all
+permissions:
+  contents: write
+  packages: write
 env:
   SOMEVAR: something
 jobs:
@@ -18,7 +20,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: /home/runner/.cache/podman
-          key: ${{ runner.os }}-podman-${{ hashFiles('**/Podmanfile') }}
+          key: ${{ runner.os }}-podman-${{ hashFiles('**/Podmanfile', '**/requirements.yml') }}
           restore-keys: |
             ${{ runner.os }}-podman-
   
