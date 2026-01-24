@@ -18,6 +18,7 @@ dependencies:
       - name: awx.awx
       - name: ansible.netcommon
       - name: community.general
+      - name: community.proxmox
       - name: netbox.netbox
       - name: community.hashi_vault
       - name: freeipa.ansible_freeipa
