@@ -10,9 +10,9 @@ build_arg_defaults:
 
 dependencies:
   ansible_core:
-    package_pip: ansible-core==2.16.14
+    package_pip: ansible-core==2.20.6
   ansible_runner:
-    package_pip: ansible-runner
+    package_pip: ansible-runner==2.4.3
   galaxy:
     collections:
       - name: awx.awx
@@ -26,12 +26,12 @@ dependencies:
       - name: fedora.linux_system_roles
       - name: community.crypto
   python:
-    - six
-    - psutil
-    - dnspython
-    - pytz
-    - proxmoxer
-    - ansible-lint # we need this for having ansible lint working in our vscode :)
+    - six==1.17.0
+    - psutil==7.2.2
+    - dnspython==2.8.0
+    - pytz==2026.2
+    - proxmoxer==2.3.0
+    - ansible-lint==26.4.0 # we need this for having ansible lint working in our vscode :)
 
   python_interpreter:
     package_system: python3.11
@@ -48,7 +48,7 @@ dependencies:
 
 images:
   base_image:
-    name: quay.io/rockylinux/rockylinux:8
+    name: quay.io/rockylinux/rockylinux:9
 
 # Custom package manager path for the RHEL based images
 # options:
